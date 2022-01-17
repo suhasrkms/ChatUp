@@ -32,7 +32,8 @@ class HomeController extends Controller
       try {
         $uid = Session::get('uid');
         $user = app('firebase.auth')->getUser($uid);
-        return view('home');
+        $users = app('firebase.auth')->listUsers($defaultMaxResults = 1000, $defaultBatchSize = 1000);
+        return view('home',compact('users'));
       } catch (\Exception $e) {
         return $e;
       }

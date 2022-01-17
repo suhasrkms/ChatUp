@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/resources/credentials/firebase_credentials.json
 .env
 .env.backup
 .phpunit.result.cache
