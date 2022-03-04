@@ -33,11 +33,24 @@ class HomeController extends Controller
         $uid = Session::get('uid');
         $user = app('firebase.auth')->getUser($uid);
         $users = app('firebase.auth')->listUsers($defaultMaxResults = 1000, $defaultBatchSize = 1000);
-        return view('home',compact('users'));
+        $msgUser = NULL;
+        return view('home',compact('users','uid','msgUser'));
       } catch (\Exception $e) {
         return $e;
       }
+    }
 
+    public function update(Request $request, $msgID)
+    {
+        try {
+          $uid = Session::get('uid');
+          $user = app('firebase.auth')->getUser($uid);
+          $users = app('firebase.auth')->listUsers($defaultMaxResults = 1000, $defaultBatchSize = 1000);
+          $msgUser = app('firebase.auth')->getUser($msgID);
+          return view('home',compact('users','uid','msgUser'));
+        } catch (\Exception $e) {
+          return $e;
+        }
     }
 
     public function customer()

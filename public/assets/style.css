@@ -8,6 +8,21 @@ html {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.btn-users:hover{
+  text-decoration: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.activeUser{
+  text-decoration: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.4);
+}
+
 ::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
